@@ -1,6 +1,6 @@
 # thesethree
 
-> a miniproject abount learning frontend
+> a miniproject about learning frontend
 
 ## Build Setup
 
