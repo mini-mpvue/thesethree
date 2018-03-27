@@ -3,7 +3,7 @@ import service from './service'
 const api = {
   getNameList: () => service.get('json/text.json'),
   getSlides:() => service.get('json/slides.json'),
-  getCateGory:() => service.get('api/category.json'),
+  getCateGory:() => service.get('api/categor.json'),
   // getNews: (id) => request.get(`https://api.ithome.com/xml/newscontent/${id}.xml`),
   // getRelatedNews: (id) => request.get(`https://api.ithome.com/json/tags/0${id.slice(0, 3)}/${id}.json`, null, {
   //   parseJson: false

@@ -31,21 +31,11 @@ import api from '@/utils/api'
 export default {
   data () {
     return {
-      category: [
-            {name:'HTML',id:'html'},
-            {name:'CSS',id:'css'},
-            {name:'Javascript',id:'js'},
-            {name:'Angular',id:'ng'},
-            {name:'React',id:'re'},
-            {name:'Vue',id:'ve'},
-            {name:'小程序',id:'mini'},
-            {name:'Nodejs',id:'node'},
-            {name:'服务器',id:'linux'}
-        ],
-        detail:[],
-        curIndex: 0,
-        isScroll: false,
-        toView: 'html'
+      category: [],
+      detail:[],
+      curIndex: 0,
+      isScroll: false,
+      toView: ''
     }
   },
 
@@ -71,9 +61,12 @@ export default {
   },
   async mounted () {
     let result=await api.getCateGory();
+    // console.log('res',this.result);
     if(result.code===200){
-      this.detail=result.data;
+      this.category=result.data.cate;
+      this.detail=result.data.list;
     }
+    this.toView=this.category[0].id||'html';
   }
 }
 </script>
