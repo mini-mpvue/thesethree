@@ -28,6 +28,6 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import url("~@/styles/variable.less");
+@import url("~@/styles/index.less");
 
 </style>

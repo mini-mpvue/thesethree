@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <swiper class="slider-wrap" :indicator-dots="true" :autoplay="true" :circular="true" interval="3000" duration="1000" indicator-active-color="#AB956D">
+    <swiper class="slider-wrap" :indicator-dots="true" :autoplay="true" :circular="true" :interval="3000" :duration="1000" indicator-active-color="#AB956D">
       <swiper-item v-for="slide in slides" :key="slide.id">
         <image :src="slide.image" class="slide-image" mode="aspectFill"/>
       </swiper-item>
@@ -104,7 +104,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import url("~@/styles/variable.less");
+@import url("~@/styles/index.less");
 .slider-wrap {
   width: 100%;
   height: 400rpx;
