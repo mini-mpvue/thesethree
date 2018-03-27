@@ -1,6 +1,13 @@
 <template>
+  <div class="container">
+    <swiper class="slider-wrap" :indicator-dots="true" :autoplay="true" :circular="true" interval="3000" duration="1000" indicator-active-color="#AB956D">
+      <swiper-item v-for="slide in slides" :key="slide.id">
+        <image :src="slide.image" class="slide-image" mode="aspectFill"/>
+      </swiper-item>
+    </swiper>
+  </div>
+  <!--
   <div class="container" @click="clickHandle('test click', $event)">
-
     <div class="userinfo" @click="bindViewTap">
       <img class="userinfo-avatar" v-if="userInfo.avatarUrl" :src="userInfo.avatarUrl" background-size="cover" />
       <div class="userinfo-nickname">
@@ -9,11 +16,11 @@
     </div>
     <p>开发人员：</p>
     <div class="name">
-      <div v-for="item in nameList">
+      <div v-for="(item,index) in nameList" :key="index">
         {{item.name}}
       </div>
     </div>
-    <!-- <div class="usermotto">
+     <div class="usermotto">
       <div class="user-motto">
         <card :text="motto"></card>
       </div>
@@ -21,9 +28,11 @@
     <form class="form-container">
       <input type="text" class="form-control" v-model="motto" placeholder="v-model" />
       <input type="text" class="form-control" v-model.lazy="motto" placeholder="v-model.lazy" />
-    </form> -->
+    </form> 
     <a href="/pages/counter/main" class="counter">去往Vuex示例页面</a>
+    
   </div>
+  -->
 </template>
 
 <script>
@@ -34,7 +43,8 @@ export default {
     return {
       motto: 'Hello World',
       userInfo: {},
-      nameList:[]
+      nameList:[],
+      slides:[]
     }
   },
 
@@ -62,10 +72,21 @@ export default {
       console.log('clickHandle:', msg, ev)
     },
     async getNames(){
-      const result = await api.getNamelist();
+      
+      let result = await api.getNameList();
+      
       if(result.code===200){
           this.nameList=result.data;
           console.log(this.nameList);
+      }
+    },
+    async getSlides(){
+      
+      let result = await api.getSlides();
+      
+      if(result.code===200){
+          this.slides=result.data;
+          console.log(this.slides);
       }
     }
   },
@@ -77,13 +98,22 @@ export default {
   mounted () {
   
     this.getNames()
- 
+    this.getSlides()
   }
 }
 </script>
 
 <style lang="less" scoped>
 @import url("~@/styles/variable.less");
+.slider-wrap {
+  width: 100%;
+  height: 400rpx;
+  .slide-image {
+    width: 100%;
+    height: 100%;
+  }
+}
+
 .userinfo {
   display: flex;
   flex-direction: column;
