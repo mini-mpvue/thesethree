@@ -5,6 +5,7 @@
         <image :src="slide.image" class="slide-image" mode="aspectFill"/>
       </swiper-item>
     </swiper>
+    <a href="/pages/counter/main" class="counter">去往Vuex示例页面</a>
   </div>
   <!--
   <div class="container" @click="clickHandle('test click', $event)">
@@ -29,7 +30,7 @@
       <input type="text" class="form-control" v-model="motto" placeholder="v-model" />
       <input type="text" class="form-control" v-model.lazy="motto" placeholder="v-model.lazy" />
     </form> 
-    <a href="/pages/counter/main" class="counter">去往Vuex示例页面</a>
+    
     
   </div>
   -->
