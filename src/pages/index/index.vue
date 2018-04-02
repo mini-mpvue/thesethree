@@ -5,7 +5,19 @@
         <image :src="slide.image" class="slide-image" mode="aspectFill"/>
       </swiper-item>
     </swiper>
-    <a href="/pages/counter/main" class="counter">去往Vuex示例页面</a>
+    <!--<a href="/pages/counter/main" class="counter">去往Vuex示例页面</a>-->
+    <div class="newest">
+      <div class="newest-title">前端头条</div>
+      <div class="newest-content">
+        <div class="newest-item" v-for="item in 6">
+          <a href="#">
+            <image src="/static/images/s4.png"></image>
+            <view class="newest-text">ES2018</view>
+            <view class="newest-text">正则表达式反向断言</view>
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
   <!--
   <div class="container" @click="clickHandle('test click', $event)">
@@ -29,9 +41,9 @@
     <form class="form-container">
       <input type="text" class="form-control" v-model="motto" placeholder="v-model" />
       <input type="text" class="form-control" v-model.lazy="motto" placeholder="v-model.lazy" />
-    </form> 
-    
-    
+    </form>
+
+
   </div>
   -->
 </template>
@@ -55,7 +67,7 @@ export default {
 
   methods: {
     bindViewTap () {
-      
+
     },
     getUserInfo () {
       // 调用登录接口
@@ -73,18 +85,18 @@ export default {
       console.log('clickHandle:', msg, ev)
     },
     async getNames(){
-      
+
       let result = await api.getNameList();
-      
+
       if(result.code===200){
           this.nameList=result.data;
           console.log(this.nameList);
       }
     },
     async getSlides(){
-      
+
       let result = await api.getSlides();
-      
+
       if(result.code===200){
           this.slides=result.data;
           console.log(this.slides);
@@ -97,7 +109,7 @@ export default {
     this.getUserInfo()
   },
   mounted () {
-  
+
     this.getNames()
     this.getSlides()
   }
@@ -114,7 +126,38 @@ export default {
     height: 100%;
   }
 }
-
+.newest-title{
+  width: 100%;
+  padding:30rpx 0;
+  height: 40rpx;
+  color: #AB956D;
+  text-align: center;
+}
+.newest-content{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+.newest-item{
+    display: inline-block;
+    width: calc(50% - 30rpx);
+    height: 325rpx;
+    margin:15rpx;
+    border-radius: 10px;
+    text-align: center;
+    background: #f5f6f5;
+    &:nth-child(2n){
+       margin-right: 0;
+    }
+    image{
+      width: 175rpx;
+      height: 175rpx;
+      margin: 20rpx 0 10rpx;
+    }
+    .newest-text{
+      font-size: 32rpx;
+    }
+  }
+}
 .userinfo {
   display: flex;
   flex-direction: column;
