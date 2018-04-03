@@ -9,7 +9,7 @@
     <div class="newest">
       <div class="newest-title">前端头条</div>
       <div class="newest-content">
-        <div class="newest-item" v-for="item in 6">
+        <div class="newest-item" v-for="(item,index) in 6" :key="index">
           <a href="#">
             <image src="/static/images/s4.png"></image>
             <view class="newest-text">ES2018</view>
@@ -116,7 +116,7 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="less" rel="stylesheet/less" scoped>
 @import url("~@/styles/index.less");
 .slider-wrap {
   width: 100%;

@@ -31,7 +31,7 @@ export default {
         iconPath: 'static/images/12.png',
         selectedIconPath: 'static/images/11.png'
       }, {
-        pagePath: 'pages/category/main',
+        pagePath: 'pages/category/index/main',
         text: '分类',
         iconPath: 'static/images/22.png',
         selectedIconPath: 'static/images/21.png'

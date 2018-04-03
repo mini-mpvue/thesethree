@@ -11,11 +11,11 @@
                   <image :src="item.banner" mode="scaleToFill"></image>
               </div>
               <div class="cate-title">
-                  <text>{{item.cate}}</text>
+                  <span>{{item.cate}}</span>
               </div>
               <div class="product">
                   <div class="product-list" v-for="(val,i) in item.detail" :key="i">
-                      <a url="../list/list">
+                      <a href="/pages/category/list/main">
                           <image :src="val.thumb"></image>
                           <div class="classname"><text>{{val.name}}</text></div>
                       </a>
@@ -40,7 +40,7 @@ export default {
   },
 
   components: {
-    
+
   },
 
   methods: {
@@ -52,12 +52,12 @@ export default {
       },0);
       setTimeout(()=>{
         this.isScroll=false
-      },1)  
+      },1)
     }
   },
 
   created () {
-    
+
   },
   async mounted () {
     let result=await api.getCateGory();
